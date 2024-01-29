@@ -67,7 +67,7 @@ updateSystem(){ #this will update the system and install all the required tools
     case $package_manager in
         "Pacman")
             echo -e "${BOLD}${RED}[#] Updating system using Pacman.${RESET}"
-            #mkdir ~/Pictures/Wallpaper #creating a directory to store the downloaded wallpaper
+            mkdir ~/Pictures/Wallpaper #creating a directory to store the downloaded wallpaper
             sudo pacman -Syu
             sudo pacman -S feh curl wget notify-send jq rofi
             clear
@@ -115,8 +115,8 @@ updateSystem(){ #this will update the system and install all the required tools
 function DownloadWallpaper(){ #this function will download the wallpapers 
     sleep 2
     echo -e "${BOLD}${YELLOW}[~] Downloading wallpapers..."
-    mkdir -p /tmp/wallpapers 2>/dev/null
-    cd /tmp/wallpapers/$1 || mkdir -p /tmp/wallpapers/$1 && cd /tmp/wallpapers/$1
+    mkdir -p /tmp/Wallpapers 2>/dev/null
+    cd /tmp/Wallpapers/$1 || mkdir -p /tmp/Wallpapers/$1 && cd /tmp/Wallpaper/$1
     notify-send " Downloading wallpapers..." -u low
     downloadFailed=0  #variable to track download failures
     for i in $(seq 1 3); do
@@ -132,7 +132,7 @@ function DownloadWallpaper(){ #this function will download the wallpapers
     feh --bg-fill /tmp/wallpapers/$1/* #use feh to set wallpapers as the background
     chosen=$(echo -e "Yes\nNo" | rofi -dmenu -i -p "Would you like to move the wallpapers? ") 
     if [ "$chosen" == "Yes" ]; then
-        mv * ~/Pictures/Wallpapers
+        mv * ~/Pictures/Wallpaper
     fi
 
     if [ "$chosen" == "No" ]; then
