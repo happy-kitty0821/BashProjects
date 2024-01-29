@@ -52,26 +52,36 @@ updateSystem() {
     case $package_manager in
         "Pacman")
             echo -e "${BOLD}${RED}[#] Updating system using Pacman.${RESET}"
+            #mkdir ~/Pictures/Wallpaper #creating a directory to store the downloaded wallpaper
             sudo pacman -Syu
+            sudo pacman -S feh 
+            clear
+            
             ;;
         "APT")
             echo -e "${BOLD}${RED}[#] Updating system using APT.${RESET}"
+            mkdir ~/Pictures/Wallpaper
             sudo apt update -y; sudo apt upgrade -y
+            sudo apt install feh -y
             ;;
         "DNF")
             echo -e "${BOLD}${RED}[#] Updating system using DNF.${RESET}"
+            mkdir ~/Pictures/Wallpaper
             sudo dnf update
             ;;
         "YUM")
             echo -e "${BOLD}${RED}[#] Updating system using YUM.${RESET}"
+            mkdir ~/Pictures/Wallpaper
             sudo yum update
             ;;
         "Zypper")
             echo -e "${BOLD}${RED}[#] Updating system using Zypper.${RESET}"
+            mkdir ~/Pictures/Wallpaper
             sudo zypper update
             ;;
         *)
             echo -e "${BOLD}${RED}[#] Package manager not supported for updating.${RESET}"
+             #exit the script
             ;;
     esac
 }
