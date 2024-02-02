@@ -50,13 +50,14 @@ Make sure you have the following tools installed:
 4. Give permission to the script:
 
     ```bash
-    chmod +x GetWallpaper.sh
+    chmod +x GetWallpaper.sh setup.sh
+
     ```
 
 5. Run the script:
 
     ```bash
-    bash wallpaper_downloader.sh
+    bash setup.sh
     ```
 
 Follow the on-screen prompts and enjoy your new wallpapers!
